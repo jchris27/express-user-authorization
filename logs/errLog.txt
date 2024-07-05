@@ -1,0 +1,5 @@
+2024/11/01	16:11:12	8f1b5347-fa35-4d5c-8ca6-554e56d8ac5c	Error: Not allowed by CORS
+2024/22/01	16:22:02	5f8cae7e-5cb2-4e28-bc53-64d9c4a48c8b	SyntaxError: Expected property name or '}' in JSON at position 1
+20240203	16:02:59	6cb15de3-be87-4b25-bae0-1a5bbc24a6cc	Error: ENOENT: no such file or directory, stat '/Users/alba.j/Desktop/Projects/expressJS-routing/routes/views/index.html'
+20240303	16:03:53	c6f5ff4d-080a-4258-984c-f79b2206145d	Error: ENOENT: no such file or directory, stat '/Users/alba.j/Desktop/Projects/expressJS-routing/routes/views/new-page.html'
+20243003	16:30:02	8c39841b-fbb0-4d59-84fc-756ae1c0f83a	TypeError: req.json is not a function
