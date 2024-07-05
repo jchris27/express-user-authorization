@@ -19,11 +19,13 @@ const handleLogin = async (req, res) => {
     //evaluate the password
     const match = await bcrypt.compare(pwd, foundUser.password);
     if (match) {
+        // grab the roles in the users json file
+        const roles = Object.values(foundUser.roles);
         // create JWTs
         const accessToken = jwt.sign(
-            { "username": foundUser.username },
+            { "UserInfo": { "username": foundUser.username, "roles": roles } },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '30s' } // production 5m-15m
+            { expiresIn: '1m' } // production 5m-15m
         );
         const refreshToken = jwt.sign(
             { "username": foundUser.username },
@@ -39,6 +41,7 @@ const handleLogin = async (req, res) => {
             JSON.stringify(usersDB.users)
         );
         // set the cookie and name it 'jwt'
+        // during development set secure: false for the thunder client to work
         res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000 }); //1 day
         res.json({ accessToken });
     } else {
